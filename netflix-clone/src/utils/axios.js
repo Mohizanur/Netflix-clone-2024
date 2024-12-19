@@ -1,6 +1,11 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseurl: "https//api.themoviedb.org/3",
+  baseURL: "https://api.themoviedb.org/3", // Fixed 'baseURL' typo
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  },
 });
+
 export default instance;
