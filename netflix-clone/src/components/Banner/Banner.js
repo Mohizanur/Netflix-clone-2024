@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "../../utils/axios";
 import requests from "../../utils/requests";
+import "./Banner.css"; // Assuming the CSS file is named Banner.css
 
 const Banner = () => {
   const [movie, setMovie] = useState({});
@@ -9,28 +10,24 @@ const Banner = () => {
     (async () => {
       try {
         const request = await axios.get(requests.fetchNetflixOriginals);
-        const movies = request.data.results;
-        const randomMovie = movies[Math.floor(Math.random() * movies.length)];
-        setMovie(randomMovie); // Update state with the selected movie
+        setMovie(
+          request.data.results[
+            Math.floor(Math.random() * request.data.results.length)
+          ]
+        );
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.log("Error fetching data:", error);
       }
     })();
   }, []);
-
-  // Truncate function to limit text length
-  const truncate = (str, n) => {
-    return str?.length > n ? str.substring(0, n - 1) + "..." : str;
-  };
 
   return (
     <div
       className="banner"
       style={{
+        backgroundImage: `url("https://image.tmdb.org/t/p/original${movie?.backdrop_path}")`,
+        backgroundPosition: "center top",
         backgroundSize: "cover",
-        backgroundImage: `url('https://image.tmdb.org/t/p/original${movie?.backdrop_path}')`,
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
       }}
     >
       <div className="banner_contents">
@@ -41,7 +38,11 @@ const Banner = () => {
           <button className="banner_button play">Play</button>
           <button className="banner_button">My List</button>
         </div>
-        <h1 className="banner_description">{truncate(movie?.overview, 150)}</h1>
+        <h1 className="banner_description">
+          {movie?.overview?.length > 150
+            ? `${movie?.overview?.substring(0, 150)}...`
+            : movie?.overview}
+        </h1>
       </div>
       <div className="banner_fadeBottom" />
     </div>
