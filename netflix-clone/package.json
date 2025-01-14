@@ -1,20 +1,19 @@
 {
-"homepage": "http://Mohizanur.github.io/Netflix-clone-2024",
- 
+  "homepage": "http://Mohizanur.github.io/Netflix-clone-2024",
   "name": "netflix-clone",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
-    "@mui/icons-material": "^6.2.1",
-    "@mui/material": "^6.2.1",
-    "axios": "^1.7.9",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.15.5",
+    "@mui/material": "^5.15.5",
+    "axios": "^1.6.5",
     "cra-template": "1.2.0",
     "movie-trailer": "^3.2.2",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-scripts": "^5.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
     "react-youtube": "^10.1.0"
   },
   "scripts": {
@@ -44,6 +43,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.3.0"
+    "gh-pages": "^6.1.1"
   }
 }
